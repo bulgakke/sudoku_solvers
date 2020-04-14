@@ -22,7 +22,7 @@ class Sudoku
     puts ""
   end
 
-  def solutions
+  def print_solutions
     return unless @get_all_solutions
 
     puts "#{@solutions} solutions overall" 
@@ -39,7 +39,6 @@ class Sudoku
         if solve
           return true unless @get_all_solutions
           @solutions += 1
-          solutions if !@print_solutions && @solutions % 1000 == 0
           print_state if @print_solutions
         end
           
@@ -119,16 +118,17 @@ empty_board =[[0, 0, 0,    0, 0, 0,    0, 0, 0],
               [0, 0, 0,    0, 0, 0,    0, 0, 0],
               [0, 0, 0,    0, 0, 0,    0, 0, 0]]
 
-
+=begin
 t1 = Time.now.to_f              
   sudoku = Sudoku.new(empty_board, get_all_solutions: false, print_them: false)
   sudoku.print_state
   sudoku.solve
   sudoku.print_state
-  sudoku.solutions
+  sudoku.print_solutions
 t2 = Time.now.to_f
 
 puts "Took #{t2-t1} seconds"
+=end
 
 # Pass `true` and `true` to the constructor to see all possible solutions
 # Pass `false` and `false` to get only one
